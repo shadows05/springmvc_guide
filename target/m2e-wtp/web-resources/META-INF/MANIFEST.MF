@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: bean
-Build-Jdk: 1.7.0_67
+Build-Jdk: 1.6.0_43
+Built-By: gaoduntao
 Created-By: Maven Integration for Eclipse
 
