@@ -35,7 +35,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String list(Model model) {
 
 		model.addAttribute("products", productService.getAllProducts());
@@ -133,5 +133,10 @@ public class ProductController {
 		mav.addObject("url", req.getRequestURL() + "?" + req.getQueryString());
 		mav.setViewName("productNotFound");
 		return mav;
+	}
+	
+	@RequestMapping("/invalidPromoCode")
+	public String invalidPromoCode() {
+		return "invalidPromoCode";
 	}
 }

@@ -65,6 +65,11 @@
 			<property name="paramName" value="language"/>
 		</bean>
 		<bean class= "com.packt.webstore.interceptor.AuditingInterceptor"/>
+		<bean class= "com.packt.webstore.interceptor.PromoCodeInterceptor">
+		 	<property name="promoCode" value="OFF3R"/>
+		 	<property name="errorRedirect" value="invalidPromoCode"/>
+		 	<property name="offerRedirect" value="products"/>
+		</bean>
 	</mvc:interceptors>
 	
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
