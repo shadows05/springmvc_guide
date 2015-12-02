@@ -28,6 +28,7 @@ import com.packt.webstore.domain.Product;
 import com.packt.webstore.exception.NoProductsFoundUnderCategoryException;
 import com.packt.webstore.exception.ProductNotFoundException;
 import com.packt.webstore.service.ProductService;
+import com.packt.webstore.validator.UnitsInStockValidator;
 
 @Controller
 @RequestMapping("/products")
@@ -35,6 +36,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private UnitsInStockValidator unitsInStockValidator;
 
 	@RequestMapping("")
 	public String list(Model model) {
@@ -128,6 +132,7 @@ public class ProductController {
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
 		binder.setDisallowedFields("unitsInOrder", "discontinued");
+		binder.setValidator(unitsInStockValidator);
 	}
 
 	@ExceptionHandler(ProductNotFoundException.class)
